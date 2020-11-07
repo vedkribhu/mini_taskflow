@@ -10,7 +10,9 @@ class Task {
 		int id;
 		vector<Task*> successor;
 		vector<Task*> predecessor;
-		int dependency=0;
+		atomic<int> dependency;
+
+
 
 		function<void()> fun;
 
@@ -25,6 +27,8 @@ class Task {
 
 		void succeed(vector<Task*> input){
 			for(auto task: input){
+				this->successor.push_back(task);
+				task->predecessor.push_back(this);
 				this->predecessor.push_back(task);
 				task->successor.push_back(this);
 			}
@@ -32,8 +36,8 @@ class Task {
 		void precede(vector<Task*> input){
 			for(auto task: input){
 				this->dependency++;
-				this->successor.push_back(task);
-				task->predecessor.push_back(this);
+				this->predecessor.push_back(task);
+				task->successor.push_back(this);
 			}
 		}
 };
