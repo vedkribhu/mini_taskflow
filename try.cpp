@@ -3,7 +3,7 @@ using namespace std;
 #include "executor.hpp"
 
 void sayThanks(){
-	cout<<"E!\n";
+	cout<<"E\n";
 }
 
 int main(){
