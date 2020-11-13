@@ -3,7 +3,7 @@
 
 using namespace std;
 
-#define NUMBER_OF_THREADS 4;
+
 
 class Executor {
 	// friend class task;
@@ -122,7 +122,7 @@ class Executor {
 			for(int i=0;i<num_of_threads;i++){
 				all_threads[i].join();
 			}
-			exit(0);
+			return;
 		}
 
 		void run(Taskflow taskflow){
@@ -131,7 +131,7 @@ class Executor {
 			this->build(taskflow);
 			cout<<"Top list:";
 			for(auto task: topological_sort_list){
-				cout<<task->id<<" ";
+				cout<<task->id+1<<" ";
 			}
 			cout<<"\n";
 			// cout<<"Size after build"<<topological_sort_list[2]->successor.size()<<"\n";

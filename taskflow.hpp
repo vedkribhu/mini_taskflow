@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include "task.hpp"
+#include "PARAMS.hpp"
 
 // #include "executor.hpp"
 using namespace std;
@@ -26,8 +27,45 @@ class Taskflow {
 				taskflow.push_back(A);
 			}
 			return taskflow;
-
 		}
+		template <typename B, typename E, typename S, typename C>
+
+		void for_each(B&& beg, E&& end, S&& inc, C&& cal){
+			int n = distance(beg, end);
+			n = n/inc;
+			while(n-- > 0){
+				Task *A = new Task();
+				A->fun = bind(cal, *beg);
+				advance(beg, inc);
+				taskflow.push_back(A);
+			}
+
+
+		 	// int w = NUMBER_OF_THREADS;
+		 	// int n = distance(beg, end);
+
+
+
+		 	// cout<<n<<" "<<w;
+		 	// cal(1);
+		 	// n = n/inc;
+
+		 	// if(n<w){w = n;}
+
+		 	// for(int i=w; i>=0; i--){
+			 // 	Task* A = new Task();
+
+			 // 	A->fun = bind([](){
+			 // 		B it = beg;
+			 // 		cal(it); 
+			 // 		while(advance(it, ))
+			 // 	});
+
+			 // 	advance(beg, inc);
+			 // 	taskflow.push_back(A);
+			 // 	if(beg>=end){break;}
+		 	// }
+		 }
 };
 
 

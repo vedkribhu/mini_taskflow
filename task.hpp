@@ -15,6 +15,7 @@ class Task {
 
 
 		function<void()> fun;
+		
 
 	    bool operator <(const Task& rhs) const
 	    {
