@@ -1,7 +1,8 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
-
+class Subflow;
 class Task {
 	// friend class graph;
 	// friend class executor;
@@ -11,7 +12,7 @@ class Task {
 		vector<Task*> successor;
 		vector<Task*> predecessor;
 		atomic<int> dependency;
-
+		Subflow* subflow;
 
 
 		function<void()> fun;
@@ -24,6 +25,12 @@ class Task {
 
 		void execute_task(){
 			(this->fun)();
+		}
+		void attach(Subflow* sub){
+			this->subflow = sub;
+		}
+		void dettach(){
+			this->subflow = NULL;
 		}
 
 		void succeed(vector<Task*> input){

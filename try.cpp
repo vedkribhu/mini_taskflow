@@ -45,7 +45,10 @@ void fun7(){
 	Sleep(3000);
 	cout<<"Function 7 finish!\n";
 }
-
+void subflow_fun(){
+	cout<<"subflow fun start\n";
+	cout<<"subflow fun end\n";
+}
 
 int main(){
 	auto start = high_resolution_clock::now();
@@ -66,8 +69,30 @@ int main(){
 	A[4]->precede({A[3], A[1]});
 	A[5]->precede({A[3],A[1]});
 	A[6]->precede({A[4],A[2]});
+	Subflow sub1("sub1");
+	sub1.add({
+		fun1,
+		subflow_fun
+	});
+	A[6]->attach(&sub1);
+	// A[6]->dettach();
 
-	// A[3]->precede({A[2], A[0]});
+	Taskflow myflow2 = Taskflow("myflow2");
+	auto B = myflow2.add({
+		fun1,
+		fun2, 
+		fun3, 
+		fun4,
+		fun5, 
+		fun6,
+		fun7
+	});
+
+	B[1]->precede({B[0]});
+	B[0]->precede({B[1]});
+	B[3]->precede({B[0]});
+
+	// Linear Execution in comments
 
 	// for(auto test: myflow.taskflow[0]->successor){
 	// 	test->execute_task();
@@ -76,8 +101,7 @@ int main(){
 	
 	Executor exe;
 
-	exe.run(myflow);
-	cout<<"run mc";
+	exe.run({myflow, myflow2});
 	auto stop = high_resolution_clock::now(); 
 	auto duration = duration_cast<microseconds>(stop - start); 
 	cout <<"Total time taken for mini-taskflow:"<< duration.count()/1e6 << endl; 
