@@ -98,7 +98,27 @@ class Taskflow {
 		}
 
 
+		void dump(ofstream &myfile){
+			myfile << "digraph gr { \n";
 
+			for(int node_id=0; node_id<this->total_task;node_id++){
+				bool flag=false;
+				for(auto task: this->taskflow[node_id]->successor){
+					flag=true;
+					// "subflow:"+this->name+":"+node_id
+					myfile<<"taskflow_"<<this->name<<"_"<<node_id<<"->"<<"taskflow_"<<this->name<<"_"<<task->id<<";\n";
+				}
+				if(this->taskflow[node_id]->subflow!=NULL){
+					this->taskflow[node_id]->subflow->dump(myfile,"taskflow_"+this->name+"_"+to_string(node_id));
+				}
+				if(!flag){
+					myfile<<"taskflow_"<<this->name<<"_"<<node_id<<";\n";
+				}
+
+			}
+			myfile << "}"; 
+			
+		}
 
 
 		template <typename B, typename E, typename S, typename C>

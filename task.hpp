@@ -29,7 +29,7 @@ class Task {
 		void attach(Subflow* sub){
 			this->subflow = sub;
 		}
-		void dettach(){
+		void detach(){
 			this->subflow = NULL;
 		}
 

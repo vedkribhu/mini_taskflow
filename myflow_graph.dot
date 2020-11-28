@@ -1,0 +1,25 @@
+digraph gr { 
+taskflow_myflow_0->taskflow_myflow_1;
+taskflow_myflow_0->taskflow_myflow_2;
+taskflow_myflow_0->taskflow_myflow_3;
+taskflow_myflow_1->taskflow_myflow_4;
+taskflow_myflow_1->taskflow_myflow_5;
+taskflow_myflow_2->taskflow_myflow_6;
+taskflow_myflow_3->taskflow_myflow_4;
+taskflow_myflow_3->taskflow_myflow_5;
+taskflow_myflow_4->taskflow_myflow_6;
+taskflow_myflow_5;
+subflow_sub1_0[fontcolor=darkgreen, shape=box];
+taskflow_myflow_6->subflow_sub1_0[fontcolor=darkgreen];
+subflow_sub_of_sub_0[fontcolor=darkgreen, shape=box];
+subflow_sub1_0->subflow_sub_of_sub_0[fontcolor=darkgreen];
+subflow_sub_of_sub_0[fontcolor=darkgreen];
+subflow_sub_of_sub_1[fontcolor=darkgreen, shape=box];
+subflow_sub1_0->subflow_sub_of_sub_1[fontcolor=darkgreen];
+subflow_sub_of_sub_1[fontcolor=darkgreen];
+subflow_sub1_0[fontcolor=darkgreen];
+subflow_sub1_1[fontcolor=darkgreen, shape=box];
+taskflow_myflow_6->subflow_sub1_1[fontcolor=darkgreen];
+subflow_sub1_1[fontcolor=darkgreen];
+taskflow_myflow_6;
+}

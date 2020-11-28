@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <fstream>
 using namespace std;
 #include "executor.hpp"
 #include <unistd.h>
@@ -7,7 +8,7 @@ using namespace std;
 using namespace std::chrono; 
   
 
-
+//dot -Tpng myflow_graph.dot > output.png && eog output.png
 
 
 void fun1(){
@@ -70,12 +71,16 @@ int main(){
 	A[5]->precede({A[3],A[1]});
 	A[6]->precede({A[4],A[2]});
 	Subflow sub1("sub1");
-	sub1.add({
-		fun1,
-		subflow_fun
-	});
-	A[6]->attach(&sub1);
-	// A[6]->dettach();
+	// auto sub_tasks = sub1.add({
+	// 	fun1,
+	// 	subflow_fun
+	// });
+	// A[6]->attach(&sub1);
+	// Subflow sub2("sub_of_sub");
+	// sub2.add({fun1, fun2});
+	// sub_tasks[0]->attach(&sub2);	
+
+	// A[6]->detach();
 
 	Taskflow myflow2 = Taskflow("myflow2");
 	auto B = myflow2.add({
@@ -99,12 +104,23 @@ int main(){
 	// }
 	// A[1].execute_task();
 	
+	ofstream myfile;
+	myfile.open(myflow.name+"_graph.dot");
+	myflow.dump(myfile);
+	// string cmd = "dot -Tpng "+myflow.name+"_graph.dot > output.png && eog output.png";
+	// const char * command = cmd.c_str();
+	// cout << "compiling";
+	// system(command);
+
 	Executor exe;
 
 	exe.run({myflow, myflow2});
 	auto stop = high_resolution_clock::now(); 
 	auto duration = duration_cast<microseconds>(stop - start); 
 	cout <<"Total time taken for mini-taskflow:"<< duration.count()/1e6 << endl; 
+
+
+
 	return 0;
 	// vector<Task> your = myflow.taskflow[0]->successor;
 

@@ -97,6 +97,30 @@ class Subflow {
 			return;
 		}
 
+		void dump(ofstream &myfile, string parent_name){
+			// cout<<"dump called\n";
+			
+			for(int node_id=0; node_id<this->total_task;node_id++){
+				myfile<<"subflow_"<<this->name<<"_"<<node_id<<"[fontcolor=darkgreen, shape=box];\n";
+				myfile<<parent_name<<"->"<<"subflow_"<<this->name<<"_"<<node_id<<"[fontcolor=darkgreen];\n";
+				bool flag=false;
+				for(auto task: this->subflow[node_id]->successor){
+					flag=true;
+					// printf("not\n");
+
+					myfile<<"subflow_"<<this->name<<"_"<<node_id<<"->"<<"subflow_"<<this->name<<"_"<<task->id<<";\n";
+				}
+				if(this->subflow[node_id]->subflow!=NULL){
+					this->subflow[node_id]->subflow->dump(myfile, "subflow_"+this->name+"_"+to_string(node_id));
+				}
+				if(!flag){
+					myfile<<"subflow_"<<this->name<<"_"<<node_id<<"[fontcolor=darkgreen];\n";	
+				}
+			}
+			// myfile << "}"; 
+			
+		}
+
 
 
 
