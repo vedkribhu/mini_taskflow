@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "9855c539-851d-4e87-95de-802c50a85773",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "767722-9855c539-851d-4e87-95de-802c50a85773"
+	},
+	"item": [
+		{
+			"name": "New Folder",
+			"item": [
+				{
+					"name": "New Folder",
+					"item": [
+						{
+							"name": "New Folder Copy",
+							"item": [
+								{
+									"name": "New Folder",
+									"item": [],
+									"id": "045533f4-7595-4192-b5fc-6ed7fa89db36"
+								},
+								{
+									"name": "New Folder Copy",
+									"item": [
+										{
+											"name": "New Folder",
+											"item": [
+												{
+													"name": "New Folder Copy",
+													"item": [
+														{
+															"name": "New Folder",
+															"item": [
+																{
+																	"name": "New Folder Copy",
+																	"item": [
+																		{
+																			"name": "New Folder",
+																			"item": [
+																				{
+																					"name": "New Folder Copy",
+																					"item": [
+																						{
+																							"name": "New Folder",
+																							"item": [],
+																							"id": "d6405d5d-4d23-4609-8317-48d17e2a5263"
+																						},
+																						{
+																							"name": "New Folder Copy",
+																							"item": [
+																								{
+																									"name": "New Folder",
+																									"item": [
+																										{
+																											"name": "New Folder Copy",
+																											"item": [
+																												{
+																													"name": "New Folder",
+																													"item": [],
+																													"id": "c07ce4d1-15d1-40d3-803e-171edbd3b3dd"
+																												}
+																											],
+																											"id": "99623c0e-cf8c-4b90-b50f-9b89a42a762e"
+																										}
+																									],
+																									"id": "dc878814-c3d6-4f85-8d26-8157c9068f89"
+																								}
+																							],
+																							"id": "0db1a218-ae4b-4838-80a7-28d48d87e871"
+																						}
+																					],
+																					"id": "cc7b5895-3b6a-4d5b-912c-9eeab9ad0209"
+																				}
+																			],
+																			"id": "05d873ad-8e2e-46a9-b4e1-08dbbbbfca43"
+																		}
+																	],
+																	"id": "5165b4b6-dc21-40f1-a453-e8e8df753c41"
+																}
+															],
+															"id": "0cc74100-e911-4e48-bee8-88144c89cd71"
+														}
+													],
+													"id": "caa506ce-e9e9-45a1-992b-4dab96c1b707"
+												}
+											],
+											"id": "31c5d45f-ee14-46f6-b856-4520fc139c2a"
+										}
+									],
+									"id": "6f8c2e4d-1db2-4019-bd6c-b592bc7c0d76"
+								}
+							],
+							"id": "cf61d0a7-2dbc-4b61-8bbf-7b513969c735"
+						}
+					],
+					"id": "93dc3161-d81a-4d42-921a-01385912db31"
+				}
+			],
+			"id": "acdde2ea-894a-412b-b78a-a7a632d4aebe"
+		},
+		{
+			"name": "New Request",
+			"id": "894d3005-8441-49d4-84f2-fba24c12b23a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "0b4f25ce-a64e-45ff-9ebc-506b51539b31",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": [
+				{
+					"id": "3aa4f33b-31a3-457b-a47a-dcc630a7c4dd",
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
